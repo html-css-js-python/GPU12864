@@ -1,2 +1,3 @@
-# rt-x12864
-Simple Arduino-based GPU.
+# VidiaG Force RT-X12864
+
+Specification: [Click here](/specs.md)
