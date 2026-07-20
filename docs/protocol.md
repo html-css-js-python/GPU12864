@@ -1,33 +1,37 @@
-# GPU12864 I2C Communication Protocol
+# RT-X12864 I2C Communication Protocol
 
-This document describes the communication protocol between the CPU and the VidiaG Force RT-X12864 Ti graphics processor.
+This document describes the communication protocol between the CPU and the VidiaG Force RT-X12864 graphics processor.
 
 The CPU communicates with the GPU using the I2C interface.
 
-## Default Configuration
+---
+
+# Default Configuration
 
 | Parameter | Value |
 |---|---|
 | Interface | I2C |
-| Address | `0x08` |
-| Speed | 400 kHz |
-| Direction | CPU → GPU |
+| Device Address | `0x08` |
+| Bus Speed | 400 kHz |
+| Communication Direction | CPU → GPU |
 
 ---
 
-# Command Format
+# Packet Format
 
-Each packet starts with a command byte.
+Every command sent to the GPU starts with a command byte.
 
 ```
 [COMMAND] [DATA...]
 ```
 
+The GPU receives commands and executes them using its internal framebuffer.
+
 ---
 
-# Commands
+# Command List
 
-## Clear Screen
+## Clear Framebuffer
 
 Command:
 
@@ -37,7 +41,7 @@ Command:
 
 Description:
 
-Clears the GPU framebuffer.
+Clears the internal GPU framebuffer.
 
 Data:
 
@@ -63,7 +67,7 @@ Command:
 
 Description:
 
-Transfers the framebuffer to the physical display.
+Updates the physical GLCD from the GPU framebuffer.
 
 Data:
 
@@ -87,29 +91,32 @@ Command:
 0x03
 ```
 
-Description:
-
-Draws one pixel.
-
 Data:
 
 ```
 [X] [Y] [COLOR]
 ```
 
-Example:
-
-```
-03 10 20 01
-```
-
 Parameters:
 
 | Parameter | Size | Description |
 |---|---|---|
-| X | 1 byte | Pixel X position |
-| Y | 1 byte | Pixel Y position |
-| COLOR | 1 byte | `1` = white, `0` = black |
+| X | 1 byte | X coordinate (0-127) |
+| Y | 1 byte | Y coordinate (0-63) |
+| COLOR | 1 byte | `1` = ON, `0` = OFF |
+
+Example:
+
+```
+03 0A 0A 01
+```
+
+Draws a pixel at:
+
+```
+X = 10
+Y = 10
+```
 
 ---
 
@@ -133,15 +140,11 @@ Example:
 04 00 00 7F 3F 01
 ```
 
-Parameters:
+Draws a line from:
 
-| Parameter | Description |
-|---|---|
-| X0 | Start X |
-| Y0 | Start Y |
-| X1 | End X |
-| Y1 | End Y |
-| COLOR | Pixel state |
+```
+(0,0) → (127,63)
+```
 
 ---
 
@@ -195,13 +198,13 @@ Fonts:
 
 | ID | Font |
 |---|---|
-| `0x00` | 5x7 |
-| `0x01` | 8x8 |
+| `0x00` | FONT_5X7 |
+| `0x01` | FONT_8X8 |
 
 Example:
 
 ```
-07 01 01 00 01 HELLO
+07 01 01 01 HELLO
 ```
 
 ---
@@ -232,19 +235,19 @@ Command:
 0x09
 ```
 
-Transfers bitmap data.
+Transfers bitmap bytes.
 
 Data:
 
 ```
-[BYTE 0] [BYTE 1] ... [BYTE N]
+[BYTE0] [BYTE1] ... [BYTEN]
 ```
 
 Bitmap format:
 
 - 1 bit per pixel
-- Vertical byte orientation
-- Stored in PROGMEM
+- Stored vertically
+- Compatible with `PROGMEM` bitmap arrays
 
 ---
 
@@ -266,60 +269,90 @@ None
 
 ---
 
-# Example Communication
-
-Draw pixel at position X=10, Y=10:
-
-CPU sends:
-
-```
-03 0A 0A 01
-```
-
-GPU executes:
-
-```
-glcdDrawPixel(10, 10, true);
-```
-
----
-
 # Rendering Pipeline
 
-The GPU uses a framebuffer.
-
-Typical workflow:
+The RT-X12864 uses a GPU-style rendering architecture:
 
 ```
 CPU
  |
- | I2C commands
+ | I2C Commands
  v
-GPU12864
+RT-X12864 GPU
  |
- | framebuffer update
+ | Framebuffer
  v
 CustomGLCD Driver
  |
  v
-128x64 GLCD
+128x64 GLCD Display
 ```
 
 ---
 
-# Notes
+# GPU Responsibilities
 
-- The CPU does not directly control the display.
-- The GPU handles:
-  - framebuffer management
-  - text rendering
-  - shapes
-  - bitmap rendering
-  - display updates
+The GPU handles:
 
-- New commands can be added in future versions.
+- Framebuffer management
+- Pixel drawing
+- Line rendering
+- Shape rendering
+- Text rendering
+- Font handling
+- Bitmap rendering
+- Display updates
 
-Protocol version:
+The CPU only sends high-level drawing commands.
+
+---
+
+# Example Workflow
+
+Drawing text:
+
+CPU sends:
+
+```
+CMD_TEXT
+X
+Y
+FONT
+COLOR
+TEXT DATA
+```
+
+GPU performs:
+
+```
+Text rendering
+        |
+        v
+Framebuffer update
+        |
+        v
+Display refresh
+```
+
+---
+
+# Extending The Protocol
+
+New commands can be added by:
+
+1. Adding a new command ID.
+2. Implementing command handling in GPU firmware.
+3. Adding a matching function in the CPU driver.
+
+Example:
+
+```
+CMD_CUSTOM = 0x20
+```
+
+---
+
+# Protocol Version
 
 ```
 v1.0
