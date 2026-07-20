@@ -162,8 +162,6 @@ Data:
 [X] [Y] [WIDTH] [HEIGHT] [COLOR]
 ```
 
----
-
 ## Draw Text
 
 Command:
