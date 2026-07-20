@@ -1,0 +1,25 @@
+#include "GPU12864.h"
+
+void setup()
+{
+  gpuBegin();
+  gpuClear();
+
+  gpuDrawPixel(10, 10);
+  gpuDrawLine(0, 0 , 127, 63);
+  gpuDrawRect(20, 15, 40, 20);
+  gpuFillRect(70, 15, 30, 20);
+  gpuDrawRect(20, 30, 40, 20);
+  gpuFillRect(23, 27, 30, 20, 0);
+  gpuDrawRect(73, 45, 15, 15);
+  gpuDrawCircle(32, 20, 15);
+  gpuFillCircle(110, 50, 10);
+  gpuFillCircle(110, 50, 7, 0);
+
+  gpuUpdate();
+}
+
+void loop()
+{
+  ;
+}

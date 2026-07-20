@@ -1,0 +1,208 @@
+#include "GPU12864.h"
+#include <math.h>
+
+const uint8_t bitmap[] PROGMEM =
+{
+0x00, 0x00, 0x00, 0x80, 0x60, 0x18, 0x04, 0xF2, 0xF2, 0x04, 0x18, 0x60,
+0x80, 0x00, 0x00, 0x00, 0x00, 0x30, 0x4E, 0x41, 0x40, 0x40, 0x40, 0x5B,
+0x5B, 0x40, 0x40, 0x40, 0x41, 0x4E, 0x38, 0x00,
+};
+
+struct Point3D
+{
+  float x;
+  float y;
+  float z;
+};
+
+struct Point2D
+{
+  int x;
+  int y;
+};
+
+Point3D cube[8] =
+{
+  {-1,-1,-1},{1,-1,-1},{1,1,-1},{-1,1,-1},
+  {-1,-1,1},{1,-1,1},{1,1,1},{-1,1,1}
+};
+
+Point3D rotateY(Point3D p, float a)
+{
+  Point3D r;
+  r.x = p.x * cos(a) - p.z * sin(a);
+  r.z = p.x * sin(a) + p.z * cos(a);
+  r.y = p.y;
+  return r;
+}
+
+Point2D project(Point3D p)
+{
+  float distance = 4;
+  return {
+    64 + (p.x / (p.z + distance)) * 40,
+    32 + (p.y / (p.z + distance)) * 40
+  };
+}
+
+void setup()
+{
+  gpuBegin();
+  gpuClear();
+  
+  gpuDrawBitmap(56, 3, bitmap, 16, 16);
+
+  gpuDrawText(1, 22, "WARNING", FONT_8X8);
+  gpuDrawText(1, 30, "Adjust your", FONT_5X7);
+  gpuDrawText(1, 38, "GLCD contrast!", FONT_5X7);
+
+  gpuUpdate();
+
+  delay(5000);
+
+  gpuClear();
+}
+
+void loop()
+{
+  gpuClear();
+  gpuDrawText(20, 20, "GPU12864", FONT_8X8);
+  gpuDrawText(10, 35, "FULL DEMO", FONT_5X7);
+  gpuUpdate();
+  delay(2500);
+
+  gpuClear();
+  gpuDrawText(1, 0, "FONT DEMO", FONT_5X7);
+  gpuDrawText(1, 16, "The quick brown", FONT_5X7);
+  gpuDrawText(1, 24, "fox jumps over", FONT_5X7);
+  gpuDrawText(1, 32, "the lazy dog.", FONT_5X7);
+  gpuDrawText(1, 40, "The quick brown", FONT_8X8);
+  gpuDrawText(1, 48, "fox jumps over", FONT_8X8);
+  gpuDrawText(1, 56, "the lazy dog.", FONT_8X8);
+  gpuUpdate();
+  delay(5000);
+
+  gpuClear();
+  gpuDrawText(1, 0, "SHAPES", FONT_8X8);
+  gpuDrawPixel(10, 20);
+  gpuDrawLine(20, 20, 60, 40);
+  gpuDrawRect(70, 15, 30, 20);
+  gpuFillRect(20, 45, 30, 15);
+  gpuDrawCircle(90, 45, 10);
+  gpuFillCircle(115, 45, 8);
+  gpuUpdate();
+  delay(2500);
+
+  for (int frame = 0; frame < 60; frame++)
+  {
+    gpuClear();
+    gpuDrawText(1, 0, "SINE GRAPH", FONT_5X7);
+
+    for (int x = 0; x < 128; x++)
+    {
+      int y = 32 + sin((x * 0.15) + frame * 0.2) * 18;
+      gpuDrawPixel(x, y);
+    }
+
+    gpuUpdate();
+    delay(40);
+  }
+
+  float ballX = 64;
+  float speedX = 3.0;
+
+  for (int frame = 0; frame < 120; frame++)
+  {
+    gpuClear();
+    gpuDrawText(1, 0, "BALL ANIMATION", FONT_5X7);
+
+    gpuDrawLine(10, 20, 10, 44);
+    gpuDrawLine(118, 20, 118, 44);
+
+    gpuFillCircle((int)ballX, 32, 3);
+
+    gpuUpdate();
+
+    ballX += speedX;
+
+    if (ballX <= 13 || ballX >= 115)
+      speedX = -speedX;
+
+    delay(30);
+  }
+
+  const int graphTop = 10;
+  const int graphBottom = 58;
+  const int graphHeight = graphBottom - graphTop;
+
+  uint8_t graphData[128];
+  for (int i = 0; i < 128; i++) graphData[i] = graphBottom;
+
+  bool rising = true;
+  int value = 0;
+
+  for (int frame = 0; frame < 128; frame++)
+  {
+    for (int i = 0; i < 127; i++)
+      graphData[i] = graphData[i + 1];
+
+    if (rising)
+    {
+      value += 4;
+      if (value >= 100) { value = 100; rising = false; }
+    }
+    else
+    {
+      value -= 4;
+      if (value <= 0) { value = 0; rising = true; }
+    }
+
+    graphData[127] = graphBottom - (value * graphHeight / 100);
+
+    gpuClear();
+    gpuDrawText(1, 0, "LIVE GRAPH", FONT_5X7);
+
+    for (int y = graphTop; y <= graphBottom; y += 12)
+      gpuDrawLine(0, y, 127, y);
+
+    for (int x = 0; x < 127; x++)
+      gpuDrawLine(x, graphData[x], x + 1, graphData[x + 1]);
+
+    gpuUpdate();
+    delay(40);
+  }
+
+  float angle = 0;
+
+  for (int frame = 0; frame < 80; frame++)
+  {
+    gpuClear();
+    gpuDrawText(1, 0, "3D CUBE", FONT_5X7);
+
+    Point2D p[8];
+
+    for (int i = 0; i < 8; i++)
+      p[i] = project(rotateY(cube[i], angle));
+
+    int edges[12][2] =
+    {
+      {0,1},{1,2},{2,3},{3,0},
+      {4,5},{5,6},{6,7},{7,4},
+      {0,4},{1,5},{2,6},{3,7}
+    };
+
+    for (int i = 0; i < 12; i++)
+      gpuDrawLine(p[edges[i][0]].x, p[edges[i][0]].y,
+                  p[edges[i][1]].x, p[edges[i][1]].y);
+
+    gpuUpdate();
+    angle += 0.1;
+    delay(40);
+  }
+
+  gpuClear();
+  gpuDrawText(10, 20, "KURDE DONE.", FONT_8X8);
+  gpuDrawText(20, 38, "Thank you!", FONT_5X7);
+  gpuUpdate();
+  delay(3000);
+}

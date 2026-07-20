@@ -1,0 +1,62 @@
+#include "GPU12864.h"
+
+float ballX = 64;
+float ballY = 32;
+float speedX = 3.0;
+
+const float maxSpeed = 3.0;
+const float minSpeed = 0.5;
+const float deceleration = 0.03;
+
+const int radius = 3;
+
+const int leftPaddleX = 10;
+const int rightPaddleX = 118;
+const int paddleTop = 20;
+const int paddleBottom = 44;
+
+void setup()
+{
+  gpuBegin();
+}
+
+void loop()
+{
+  gpuClear();
+
+  gpuDrawLine(leftPaddleX, paddleTop, leftPaddleX, paddleBottom);
+  gpuDrawLine(rightPaddleX, paddleTop, rightPaddleX, paddleBottom);
+
+  gpuFillCircle((int)ballX, (int)ballY, radius);
+
+  gpuUpdate();
+
+  ballX += speedX;
+
+  if (ballX - radius <= leftPaddleX)
+  {
+    speedX = maxSpeed;
+    ballX = leftPaddleX + radius;
+  }
+
+  if (ballX + radius >= rightPaddleX)
+  {
+    speedX = -maxSpeed;
+    ballX = rightPaddleX - radius;
+  }
+
+  if (speedX > 0)
+  {
+    speedX -= deceleration;
+    if (speedX < minSpeed)
+      speedX = minSpeed;
+  }
+  else
+  {
+    speedX += deceleration;
+    if (speedX > -minSpeed)
+      speedX = -minSpeed;
+  }
+
+  delay(100);
+}

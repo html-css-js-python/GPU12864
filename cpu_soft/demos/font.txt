@@ -1,0 +1,61 @@
+#include "GPU12864.h"
+
+void setup()
+{
+  gpuBegin();
+}
+
+void loop()
+{
+  gpuClear();
+
+  gpuDrawText(1, 0, "This is Font 5x7.", FONT_5X7);
+  gpuDrawText(1, 8, "The quick brown fox", FONT_5X7);
+  gpuDrawText(1, 16, "jumps over the lazy", FONT_5X7);
+  gpuDrawText(1, 24, "dog. ABCDEFGHIJKLMNOP", FONT_5X7);
+  gpuDrawText(1, 32, "QRSTUVWXYZ abcdefghij", FONT_5X7);
+  gpuDrawText(1, 40, "klmnopqrstuvwxyz 0123", FONT_5X7);
+  gpuDrawText(1, 48, "456789 !@#$%^&*()_+-=", FONT_5X7);
+
+  gpuUpdate();
+
+  delay(5000);
+
+  gpuClear();
+
+  gpuDrawText(1, 0, "This is Font", FONT_8X8);
+  gpuDrawText(1, 8, "8x8. The quick", FONT_8X8);
+  gpuDrawText(1, 16, "fox jumps over", FONT_8X8);
+  gpuDrawText(1, 24, "the lazy dog.", FONT_8X8);
+  gpuDrawText(1, 32, "ABCDEFGHIJKLMN", FONT_8X8);
+  gpuDrawText(1, 40, "OPQRSTUVWXYZ", FONT_8X8);
+  gpuDrawText(1, 48, "abcdefghijklmn", FONT_8X8);
+  gpuDrawText(1, 56, "opqrstuvwxyz", FONT_8X8);
+
+  gpuUpdate();
+
+  delay(5000);
+
+  gpuClear();
+
+  gpuDrawText(1, 0, "This is Font", FONT_8X8);
+  gpuDrawText(1, 8, "8x8.", FONT_8X8);
+  gpuDrawText(1, 16, "0123456789", FONT_8X8);
+  gpuDrawText(1, 24, "!@#$%^&*()_+-=", FONT_8X8);
+
+  gpuDrawText(1, 40, "FONT_5X7", FONT_5X7);
+  gpuDrawText(1, 48, "FONT_8X8", FONT_8X8);
+
+  gpuUpdate();
+
+  delay(5000);
+
+  gpuClear();
+
+  gpuDrawText(3, 3, "All fonts contain all", FONT_5X7);
+  gpuDrawText(3, 11, "ASCII characters.", FONT_5X7);
+
+  gpuUpdate();
+
+  delay(5000);
+}

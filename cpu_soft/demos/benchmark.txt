@@ -1,0 +1,72 @@
+#include "GPU12864.h"
+
+unsigned long pixelTime;
+unsigned long lineTime;
+unsigned long updateTime;
+
+void setup()
+{
+  gpuBegin();
+  gpuClear();
+  
+  unsigned long start = millis();
+  
+  for (int i = 0; i < 1000; i++) {
+    gpuDrawPixel(random(128), random(64));
+  }
+  
+  pixelTime = millis() - start;
+  
+  start = millis();
+  
+  for (int i = 0; i < 100; i++) {
+    gpuDrawLine(0, i % 64, 127, (i * 3) % 64);
+  }
+  
+  lineTime = millis() - start; start = millis();
+  
+  gpuUpdate();
+
+  updateTime = millis() - start;
+  
+  gpuClear();
+  
+  gpuDrawText(1, 0, "GPU12864 BENCHMARK", FONT_5X7);
+  
+  char buf[20];
+  if (pixelTime == 0)
+  {
+    gpuDrawText(1, 16, "1000 px: < 1 ms", FONT_5X7);
+  }
+  else
+  {
+    sprintf(buf, "1000 px: %lu ms", pixelTime);
+    gpuDrawText(1, 16, buf, FONT_5X7);
+  }
+  
+  if (lineTime == 0)
+  {
+    gpuDrawText(1, 26, "100 lines: < 1 ms", FONT_5X7);
+  }
+  else
+  {
+    sprintf(buf, "100 lines: %lu ms", lineTime);
+    gpuDrawText(1, 26, buf, FONT_5X7);
+  }
+  
+  if (updateTime == 0) {
+    gpuDrawText(1, 36, "Update: < 1 ms", FONT_5X7);
+  }
+  else
+  {
+    sprintf(buf, "Update: %lu ms", updateTime);
+    gpuDrawText(1, 36, buf, FONT_5X7);
+  }
+  
+  gpuUpdate();
+}
+
+void loop()
+{
+  ;
+}

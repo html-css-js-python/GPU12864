@@ -1,0 +1,109 @@
+#include "GPU12864.h"
+#include <math.h>
+
+struct Point3D
+{
+  float x;
+  float y;
+  float z;
+};
+
+struct Point2D
+{
+  int x;
+  int y;
+};
+
+float angle = 0;
+
+Point3D cube[8] =
+{
+  {-1,-1,-1},
+  { 1,-1,-1},
+  { 1, 1,-1},
+  {-1, 1,-1},
+
+  {-1,-1, 1},
+  { 1,-1, 1},
+  { 1, 1, 1},
+  {-1, 1, 1}
+};
+
+
+Point2D project(Point3D p)
+{
+  float distance = 4;
+
+  int x = 64 + (p.x / (p.z + distance)) * 60;
+  int y = 32 + (p.y / (p.z + distance)) * 60;
+
+  return {x, y};
+}
+
+
+Point3D rotateY(Point3D p, float a)
+{
+  Point3D r;
+
+  r.x = p.x * cos(a) - p.z * sin(a);
+  r.z = p.x * sin(a) + p.z * cos(a);
+
+  r.y = p.y;
+
+  return r;
+}
+
+
+void setup()
+{
+  gpuBegin();
+  gpuClear();
+
+  gpuDrawText(3, 3, "WARNING", FONT_8X8);
+  gpuDrawText(3, 15, "Please adjust your", FONT_5X7);
+  gpuDrawText(3, 23, "GLCD contrast.", FONT_5X7);
+
+  gpuUpdate();
+
+  delay(2500);
+}
+
+
+void loop()
+{
+  gpuClear();
+
+  Point2D p[8];
+
+  for(int i=0;i<8;i++)
+  {
+    Point3D r = rotateY(cube[i], angle);
+    p[i] = project(r);
+  }
+
+
+  int edges[][2] =
+  {
+    {0,1},{1,2},{2,3},{3,0},
+    {4,5},{5,6},{6,7},{7,4},
+    {0,4},{1,5},{2,6},{3,7}
+  };
+
+
+  for(int i=0;i<12;i++)
+  {
+    gpuDrawLine(
+      p[edges[i][0]].x,
+      p[edges[i][0]].y,
+      p[edges[i][1]].x,
+      p[edges[i][1]].y
+    );
+  }
+
+
+  gpuUpdate();
+
+  angle += 0.1;
+
+  delay(120);
+}

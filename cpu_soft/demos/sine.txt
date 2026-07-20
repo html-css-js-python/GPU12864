@@ -1,0 +1,29 @@
+#include <math.h>
+#include "GPU12864.h"
+
+int zeroPoint = 37;
+int amplitude = 25;
+
+void setup()
+{
+  gpuBegin();
+  gpuClear();
+
+  gpuDrawLine(0, zeroPoint, 127, zeroPoint);
+  gpuDrawText(1, 1, "SINE FUNCTION GRAPH", FONT_5X7);
+
+  for (int x = 0; x < 128; x++)
+  {
+    float angle = x * 0.1;
+    int y = zeroPoint + sin(angle) * amplitude;
+
+    gpuDrawPixel(x, y);
+  }
+
+  gpuUpdate();
+}
+
+void loop()
+{
+  ;
+}

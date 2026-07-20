@@ -1,0 +1,16 @@
+#include "GPU12864.h"
+
+void setup()
+{
+  gpuBegin();
+  gpuClear();
+
+  gpuDrawText(3, 3, "Hello, World!", FONT_5X7);
+
+  gpuUpdate();
+}
+
+void loop()
+{
+  ;
+}
