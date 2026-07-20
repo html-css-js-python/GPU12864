@@ -4,8 +4,6 @@ This document describes the communication protocol between the CPU and the Vidia
 
 The CPU communicates with the GPU using the I2C interface.
 
----
-
 # Default Configuration
 
 | Parameter | Value |
@@ -14,8 +12,6 @@ The CPU communicates with the GPU using the I2C interface.
 | Device Address | `0x08` |
 | Bus Speed | 400 kHz |
 | Communication Direction | CPU → GPU |
-
----
 
 # Packet Format
 
@@ -26,8 +22,6 @@ Every command sent to the GPU starts with a command byte.
 ```
 
 The GPU receives commands and executes them using its internal framebuffer.
-
----
 
 # Command List
 
@@ -55,8 +49,6 @@ Example:
 01
 ```
 
----
-
 ## Update Display
 
 Command:
@@ -80,8 +72,6 @@ Example:
 ```
 02
 ```
-
----
 
 ## Draw Pixel
 
@@ -118,8 +108,6 @@ X = 10
 Y = 10
 ```
 
----
-
 ## Draw Line
 
 Command:
@@ -146,8 +134,6 @@ Draws a line from:
 (0,0) → (127,63)
 ```
 
----
-
 ## Draw Rectangle
 
 Command:
@@ -161,8 +147,6 @@ Data:
 ```
 [X] [Y] [WIDTH] [HEIGHT] [COLOR]
 ```
-
----
 
 ## Fill Rectangle
 
@@ -207,8 +191,6 @@ Example:
 07 01 01 01 HELLO
 ```
 
----
-
 ## Bitmap Start
 
 Command:
@@ -224,8 +206,6 @@ Data:
 ```
 [X] [Y] [WIDTH] [HEIGHT]
 ```
-
----
 
 ## Bitmap Data
 
@@ -249,8 +229,6 @@ Bitmap format:
 - Stored vertically
 - Compatible with `PROGMEM` bitmap arrays
 
----
-
 ## Bitmap End
 
 Command:
@@ -266,8 +244,6 @@ Data:
 ```
 None
 ```
-
----
 
 # Rendering Pipeline
 
@@ -288,8 +264,6 @@ CustomGLCD Driver
 128x64 GLCD Display
 ```
 
----
-
 # GPU Responsibilities
 
 The GPU handles:
@@ -304,8 +278,6 @@ The GPU handles:
 - Display updates
 
 The CPU only sends high-level drawing commands.
-
----
 
 # Example Workflow
 
@@ -334,8 +306,6 @@ Framebuffer update
 Display refresh
 ```
 
----
-
 # Extending The Protocol
 
 New commands can be added by:
@@ -349,8 +319,6 @@ Example:
 ```
 CMD_CUSTOM = 0x20
 ```
-
----
 
 # Protocol Version
 
