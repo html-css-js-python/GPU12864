@@ -49,10 +49,12 @@ Passive Cooling
 
 ### Gaming Compatibility
 
-| Game | Status |
-|---|---|
-| DOOM | Yes |
-| Minecraft | Maybe |
+| Game           | Status                 |
+| -------------- | ---------------------- |
+| DOOM           | Yes                    |
+| Minecraft      | Maybe                  |
 | Cyberpunk 2077 | No (display too small) |  
+
+DOOM support is considered mandatory for all serious computing devices, including potatoes.
 
 **Note**: This is not an RTX graphics card. It is a custom microcontroller-based 2D graphics accelerator for GLCD displays.
