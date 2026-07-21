@@ -140,6 +140,7 @@ The repository includes the complete KiCad project and manufacturing files for t
 ## Documentation
 
 * [Technical Specification](docs/specs.md)
+* [Bitmap Conversion and Rendering](docs/bitmap.md)
 * [I2C Communication Protocol](docs/protocol.md)
 * [Fun Specifications](/fun_specs.md)
 
