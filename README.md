@@ -46,28 +46,6 @@ The CPU only sends high-level commands such as drawing pixels, lines, text, and 
 | VRAM              | 1 KB framebuffer                                           |
 | Power Consumption | Approximately 255 mA during active rendering               |
 
-## Repository Structure
-
-```
-cpu_soft/
-├── cpuScreenI2C/
-│   ├── cpuScreenI2C.ino
-│   └── GPU12864.h
-├── demos/
-├── images/
-├── glcdimg.py
-└── requirements.txt
-
-gpu_soft/
-└── ScreenI2C/
-    ├── CustomGLCD.h
-    └── ScreenI2C.ino
-
-docs/
-├── protocol.md
-└── specs.md
-```
-
 ## Installation
 
 1. Upload `gpu_soft/ScreenI2C/ScreenI2C.ino` to the Arduino Uno R4 WiFi.
