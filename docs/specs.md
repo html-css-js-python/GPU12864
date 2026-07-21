@@ -58,7 +58,7 @@ This document contains the official technical specifications of the VidiaG Force
 
 | Feature           | Description                             |
 | ----------------- | --------------------------------------- |
-| Mounting Holes    | 4                                       |
+| Mounting Holes    | 8                                       |
 | GLCD Connector    | Dedicated display connector             |
 | Arduino Interface | Uno R4 WiFi Shield Header               |
 | I2C Connector     | GND, VCC, SCL, SDA                      |
