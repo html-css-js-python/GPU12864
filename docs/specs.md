@@ -56,14 +56,14 @@ This document contains the official technical specifications of the VidiaG Force
 
 ## Physical PCB Features
 
-| Feature           | Description                             |
-| ----------------- | --------------------------------------- |
-| Mounting Holes    | 8                                       |
-| GLCD Connector    | Dedicated display connector             |
-| Arduino Interface | Uno R4 WiFi Shield Header               |
-| I2C Connector     | GND, VCC, SCL, SDA                      |
-| PCB Branding      | Vertical "VidiaG Force RT-X12864" label |
-| Repository URL    | Printed on PCB near GLCD pins           |
+| Feature               | Description                             |
+| --------------------- | --------------------------------------- |
+| Mounting Holes        | 8                                       |
+| GLCD Connector        | Dedicated display connector             |
+| Arduino Interface     | Uno R4 WiFi Shield Header               |
+| I2C Connector         | GND, VCC, SCL, SDA                      |
+| PCB Branding          | Vertical "VidiaG Force RT-X12864" label |
+| GitHub Profile URL    | Printed on PCB near GLCD pins           |
 
 ## Rendering Pipeline
 
