@@ -134,7 +134,7 @@ Parameters:
 * `x` — X position
 * `y` — Y position
 * `text` — text to display
-* `color` — `true` for black text, `false` for white text
+* `color` — `true` for **active** pixels, `false` for **non-active** pixels
 
 ```cpp
 uiLabel(5, 20, "Hello World");
