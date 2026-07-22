@@ -27,15 +27,22 @@ Then include the driver in your Arduino sketch:
 ## Basic Usage
 
 ```cpp
+#include "GPU12864.h"
+#include "ComposeGLCD.h"
+
 void setup()
 {
     initScreen();
 
-    uiDialogBox(centerX(100), centerY(40), 100, 40);
+    uiDialogBox(centerX(110), centerY(40), 110, 40);
     uiTitle(15, "Hello");
-    uiLabel(20, 30, "ComposeGLCD Demo");
+    uiLabel(centerTextX(16), 30, "ComposeGLCD Demo");
 
     draw();
+}
+
+void loop()
+{
 }
 ```
 
