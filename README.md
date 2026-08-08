@@ -132,4 +132,4 @@ The repository includes the complete KiCad project and manufacturing files for t
 
 ## License
 
-This project is released as open-source hardware and software. You are free to study, modify, and distribute it under the terms of the chosen license.
+This project is released as open-source hardware and software. You are free to study, modify, and distribute it under the terms of the chosen [license](/LICENSE).
