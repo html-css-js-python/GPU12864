@@ -22,18 +22,18 @@ This document contains the official technical specifications of the VidiaG Force
 
 ## Graphics Capabilities
 
-| Feature                  | Support     |
-| ------------------------ | ----------- |
-| Framebuffer Management   | Yes         |
-| Pixel Drawing            | Yes         |
-| Line Drawing             | Yes         |
-| Rectangle Drawing        | Yes         |
-| Filled Rectangle Drawing | Yes         |
-| Circle Drawing           | Yes         |
-| Filled Circle Drawing    | Yes         |
-| Text Rendering           | Yes         |
-| Bitmap Rendering         | Yes         |
-| Font Rendering           | 5x7 and 8x8 |
+| Feature                  | Support           | Function                    |
+| ------------------------ | ----------------- | --------------------------- |
+| Framebuffer Management   | Yes               | `gpuClear()`, `gpuUpdate()` |
+| Pixel Drawing            | Yes               | `gpuDrawPixel()`            |
+| Line Drawing             | Yes               | `gpuDrawLine()`             |
+| Rectangle Drawing        | Yes               | `gpuDrawRect()`             |
+| Filled Rectangle Drawing | Yes               | `gpuFillRect()`             |
+| Circle Drawing           | Yes               | `gpuDrawCircle()`           |
+| Filled Circle Drawing    | Yes               | `gpuFillCircle()`           |
+| Text Rendering           | Fonts 5x7 and 8x8 | `gpuDrawText()`             |
+| Bitmap Rendering         | Yes               | `gpuDrawBitmap()`           |
+
 
 ## Memory
 
@@ -92,12 +92,13 @@ CustomGLCD Driver
 
 ## Software Components
 
-| Component     | Description                     |
-| ------------- | ------------------------------- |
-| GPU12864.h    | CPU-side GPU driver and API     |
-| ScreenI2C.ino | GPU firmware                    |
-| CustomGLCD.h  | Low-level GLCD rendering driver |
-| glcdimg.py    | Bitmap conversion utility       |
+| Component     | Description                       |
+| ------------- | --------------------------------- |
+| GPU12864.h    | CPU-side GPU driver and API       |
+| ScreenI2C.ino | GPU firmware                      |
+| CustomGLCD.h  | Low-level GLCD rendering driver   |
+| glcdimg.py    | Bitmap conversion utility         |
+| ComposeGLCD   | Additional drier (no need to use) |
 
 ## Notes
 
