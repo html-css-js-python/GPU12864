@@ -10,7 +10,15 @@ This document contains the official technical specifications of the VidiaG Force
 | Project Type          | Open-source microcontroller-based GPU |
 | GPU Controller        | Arduino Uno R4 WiFi                   |
 | Intended Display      | 128x64 monochrome GLCD                |
-| Display Compatibility | AG12864AHF / KS0108-compatible        |
+| Display Compatibility | KS0108-compatible                     |
+
+## Compatibility
+
+| Model                       | Tested | Datasheet link                                                                             | Link to purchase                             |
+| --------------------------- | ------ | ------------------------------------------------------------------------------------------ | -------------------------------------------- |
+| Ampire AG12864AHF           | YES    | Unavailable                                                                                | https://aliexpress.com/item/32656645397.html |
+| Crystalfontz CFAG12864A-YYH | NO     | https://www.alldatasheet.com/datasheet-pdf/pdf/1162323/CRYSTAIFONTZ/CFAG12864A-YYH-VN.html | Unavailable                                  |
+| Crystalfontz CFAG12864A-TMI | NO     | https://www.alldatasheet.com/datasheet-pdf/pdf/1162322/CRYSTAIFONTZ/CFAG12864A-TMI-VN.html | Unavailable                                  |
 
 ## Graphics Capabilities
 
