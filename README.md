@@ -77,18 +77,24 @@ void loop()
 
 ## Available Commands
 
-| Command           | Function                 |
-| ----------------- | ------------------------ |
-| `gpuClear()`      | Clear the framebuffer    |
-| `gpuUpdate()`     | Refresh the GLCD display |
-| `gpuDrawPixel()`  | Draw a single pixel      |
-| `gpuDrawLine()`   | Draw a line              |
-| `gpuDrawRect()`   | Draw a rectangle         |
-| `gpuFillRect()`   | Draw a filled rectangle  |
-| `gpuDrawCircle()` | Draw a circle            |
-| `gpuFillCircle()` | Draw a filled circle     |
-| `gpuDrawText()`   | Render text              |
-| `gpuDrawBitmap()` | Render a bitmap          |
+| Command                                                                                     | Function                 |
+| ------------------------------------------------------------------------------------------- | ------------------------ |
+| `gpuClear()`                                                                                | Clear the framebuffer    |
+| `gpuUpdate()`                                                                               | Refresh the GLCD display |
+| `gpuDrawPixel(uint8_t x, uint8_t y, bool color = true)`                                     | Draw a single pixel      |
+| `gpuDrawLine(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, bool color = true)`            | Draw a line              |
+| `gpuDrawRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, bool color = true)`                | Draw a rectangle         |
+| `gpuFillRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, bool color = true)`                | Draw a filled rectangle  |
+| `gpuDrawCircle(uint8_t x, uint8_t y, uint8_t r, bool color = true)`                         | Draw a circle            |
+| `gpuFillCircle(uint8_t x, uint8_t y, uint8_t r, bool color = true)`                         | Draw a filled circle     |
+| `gpuDrawText(uint8_t x, uint8_t y, const char* text, uint8_t fontId, bool color = true)`    | Render text              |
+| `gpuDrawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t width, uint8_t height)` | Render a bitmap          |
+
+The API is function-based rather than object-oriented.
+
+> Functions, yes, functions. **Because yes**.
+>
+> It was simpler to implement this way. :P
 
 ## Demos
 
