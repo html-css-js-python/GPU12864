@@ -16,9 +16,9 @@ This document contains the official technical specifications of the VidiaG Force
 
 | Model                       | Tested | Datasheet link                                                                             | Link to purchase                             |
 | --------------------------- | ------ | ------------------------------------------------------------------------------------------ | -------------------------------------------- |
-| Ampire AG12864AHF           | YES    | Unavailable                                                                                | https://aliexpress.com/item/32656645397.html |
-| Crystalfontz CFAG12864A-YYH | NO     | https://www.alldatasheet.com/datasheet-pdf/pdf/1162323/CRYSTAIFONTZ/CFAG12864A-YYH-VN.html | Unavailable                                  |
-| Crystalfontz CFAG12864A-TMI | NO     | https://www.alldatasheet.com/datasheet-pdf/pdf/1162322/CRYSTAIFONTZ/CFAG12864A-TMI-VN.html | Unavailable                                  |
+| Ampire AG12864AHF           | Yes    | Unavailable                                                                                | https://aliexpress.com/item/32656645397.html |
+| Crystalfontz CFAG12864A-YYH | No     | https://www.alldatasheet.com/datasheet-pdf/pdf/1162323/CRYSTAIFONTZ/CFAG12864A-YYH-VN.html | Unavailable                                  |
+| Crystalfontz CFAG12864A-TMI | No     | https://www.alldatasheet.com/datasheet-pdf/pdf/1162322/CRYSTAIFONTZ/CFAG12864A-TMI-VN.html | Unavailable                                  |
 
 ## Graphics Capabilities
 
