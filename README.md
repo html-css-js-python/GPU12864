@@ -77,18 +77,19 @@ void loop()
 
 ## Available Commands
 
-| Command                                                                                     | Function                 |
-| ------------------------------------------------------------------------------------------- | ------------------------ |
-| `gpuClear()`                                                                                | Clear the framebuffer    |
-| `gpuUpdate()`                                                                               | Refresh the GLCD display |
-| `gpuDrawPixel(uint8_t x, uint8_t y, bool color = true)`                                     | Draw a single pixel      |
-| `gpuDrawLine(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, bool color = true)`            | Draw a line              |
-| `gpuDrawRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, bool color = true)`                | Draw a rectangle         |
-| `gpuFillRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, bool color = true)`                | Draw a filled rectangle  |
-| `gpuDrawCircle(uint8_t x, uint8_t y, uint8_t r, bool color = true)`                         | Draw a circle            |
-| `gpuFillCircle(uint8_t x, uint8_t y, uint8_t r, bool color = true)`                         | Draw a filled circle     |
-| `gpuDrawText(uint8_t x, uint8_t y, const char* text, uint8_t fontId, bool color = true)`    | Render text              |
-| `gpuDrawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t width, uint8_t height)` | Render a bitmap          |
+| Command                                                                                     | Function                                                   |
+| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| `gpuBegin()`                                                                                | Begins communication betwen CPU and GPU (takes about 1,2s) |
+| `gpuClear()`                                                                                | Clear the framebuffer                                      |
+| `gpuUpdate()`                                                                               | Send the framebuffer to the GLCD                           |
+| `gpuDrawPixel(uint8_t x, uint8_t y, bool color = true)`                                     | Draw a single pixel                                        |
+| `gpuDrawLine(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, bool color = true)`            | Draw a line                                                |
+| `gpuDrawRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, bool color = true)`                | Draw a rectangle                                           |
+| `gpuFillRect(uint8_t x, uint8_t y, uint8_t w, uint8_t h, bool color = true)`                | Draw a filled rectangle                                    |
+| `gpuDrawCircle(uint8_t x, uint8_t y, uint8_t r, bool color = true)`                         | Draw a circle                                              |
+| `gpuFillCircle(uint8_t x, uint8_t y, uint8_t r, bool color = true)`                         | Draw a filled circle                                       |
+| `gpuDrawText(uint8_t x, uint8_t y, const char* text, uint8_t fontId, bool color = true)`    | Render text                                                |
+| `gpuDrawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t width, uint8_t height)` | Render a bitmap                                            |
 
 The API is function-based rather than object-oriented.
 
