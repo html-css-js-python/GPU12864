@@ -84,7 +84,7 @@ This document contains the official technical specifications of the VidiaG Force
 ```
 CPU (Master)
     |
-    | I2C Commands
+    | I²C Commands
     v
 RT-X12864 GPU
     |
