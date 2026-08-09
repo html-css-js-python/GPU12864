@@ -20,6 +20,9 @@ This document contains the official technical specifications of the VidiaG Force
 | Crystalfontz CFAG12864A-YYH | No     | https://www.alldatasheet.com/datasheet-pdf/pdf/1162323/CRYSTAIFONTZ/CFAG12864A-YYH-VN.html | Unavailable                                  |
 | Crystalfontz CFAG12864A-TMI | No     | https://www.alldatasheet.com/datasheet-pdf/pdf/1162322/CRYSTAIFONTZ/CFAG12864A-TMI-VN.html | Unavailable                                  |
 
+> [!NOTE]
+> Displays marked as untested will most likely work with this GPU, but compatibility has not been verified.
+
 ## Graphics Capabilities
 
 | Feature                  | Support           | Function                    |
@@ -46,21 +49,21 @@ This document contains the official technical specifications of the VidiaG Force
 
 ## Communication
 
-| Parameter               | Value         |
-| ----------------------- | ------------- |
-| Interface               | I2C           |
-| Default Address         | 0x08          |
-| Bus Speed               | 400 kHz       |
-| Communication Direction | CPU → GPU     |
-| Protocol                | Command-based |
+| Parameter               | Value              |
+| ----------------------- | ------------------ |
+| Interface               | I&sup2;C           |
+| Default Address         | 0x08               |
+| Bus Speed               | 400 kHz            |
+| Communication Direction | CPU → GPU          |
+| Protocol                | Command-based      |
 
 ## Electrical Characteristics
 
-| Parameter                   | Value                                        |
-| --------------------------- | -------------------------------------------- |
-| Supply Voltage              | 5V                                           |
-| Typical Current Consumption | Approximately 255 mA during active rendering |
-| Logic Level                 | 5V compatible                                |
+| Parameter                   | Value                                             |
+| --------------------------- | ------------------------------------------------- |
+| Supply Voltage              | 5V                                                |
+| Typical Current Consumption | Approximately 255 mA including the display (idle) |
+| Logic Level                 | 5V compatible                                     |
 
 ## Physical PCB Features
 
@@ -72,6 +75,9 @@ This document contains the official technical specifications of the VidiaG Force
 | I2C Connector         | GND, VCC, SCL, SDA                      |
 | PCB Branding          | Vertical "VidiaG Force RT-X12864" label |
 | GitHub Profile URL    | Printed on PCB near GLCD pins           |
+
+> [!TIP]
+> You can screw the display to the graphics card with M2.5 spacers.
 
 ## Rendering Pipeline
 
