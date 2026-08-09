@@ -98,7 +98,7 @@ CustomGLCD Driver
 | ScreenI2C.ino | GPU firmware                      |
 | CustomGLCD.h  | Low-level GLCD rendering driver   |
 | glcdimg.py    | Bitmap conversion utility         |
-| ComposeGLCD   | Additional drier (no need to use) |
+| ComposeGLCD.h | Additional drier (no need to use) |
 
 ## Notes
 
