@@ -8,7 +8,7 @@ Unlike a typical GLCD library, the CPU does not directly control the display. In
 
 * Dedicated GPU architecture for 128x64 GLCD displays
 * Independent framebuffer management
-* I2C communication between CPU and GPU
+* I&sup2;C communication between CPU and GPU
 * Text rendering with 5x7 and 8x8 fonts
 * Pixel, line, rectangle, and filled rectangle drawing
 * Circle and filled circle rendering
@@ -21,7 +21,7 @@ Unlike a typical GLCD library, the CPU does not directly control the display. In
 ```
 CPU (Master)
     |
-    | I2C Commands (400 kHz)
+    | I²C Commands (400 kHz)
     v
 VidiaG Force RT-X12864 GPU
     |
