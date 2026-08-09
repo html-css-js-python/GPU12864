@@ -38,6 +38,9 @@ python glcdimg.py images/cats.bmp
 
 The converter will generate a C/C++ `PROGMEM` array that can be copied directly into an Arduino sketch.
 
+> [!WARNING]
+> Height of your image must be a multiple of 8.
+
 ## Recommended Image Settings
 
 For best results, prepare images with the following settings before conversion:
