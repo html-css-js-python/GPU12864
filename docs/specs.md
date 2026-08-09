@@ -100,9 +100,11 @@ CustomGLCD Driver
 | glcdimg.py    | Bitmap conversion utility         |
 | ComposeGLCD.h | Additional drier (no need to use) |
 
-## Notes
 
-* The CPU does not directly control the GLCD display.
-* The RT-X12864 GPU manages its own framebuffer and rendering operations.
-* The communication protocol is extensible and can support additional commands in future versions.
-* The project is released as open-source hardware and software.
+## Important Informations
+
+> [!NOTE]
+> * The CPU does not directly control the GLCD display.
+> * The RT-X12864 GPU manages its own framebuffer and rendering operations.
+> * The communication protocol is extensible and can support additional commands in future versions.
+> * The project is released as open-source hardware and software.
