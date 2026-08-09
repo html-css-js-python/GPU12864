@@ -131,7 +131,7 @@ The repository includes the complete KiCad project and manufacturing files for t
 * [Bitmap Conversion and Rendering](docs/bitmap.md)
 * [I2C Communication Protocol](docs/protocol.md)
 * [Additional Drivers](docs/additional_drivers.md)
-* [Fun Specifications](/fun_specs.md)
+* [Fun Specifications (Easter Egg)](/fun_specs.md)
 
 > [!NOTE]
 > This is not an RTX graphics card. It is a custom, microcontroller-based 2D GPU for GLCD displays.
