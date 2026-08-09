@@ -19,7 +19,7 @@ VidiaG Micro Electronics Tracing
 **VRAM**: 1 KB SRAM
 
 ### Interface
-400 kHz I2C Express
+400 kHz I&sup2;C Express
 
 ### Display
 **Output Resolution**:  
