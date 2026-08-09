@@ -91,6 +91,9 @@ void loop()
 | `gpuDrawText(uint8_t x, uint8_t y, const char* text, uint8_t fontId, bool color = true)`    | Render text                                                  |
 | `gpuDrawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t width, uint8_t height)` | Render a bitmap                                              |
 
+> [!TIP]
+> You can use `gpuFillRect()` instead of `gpuClear()` when you want to clear only part of the screen to avoid screen flashing on refresh.
+
 The API is function-based rather than object-oriented.
 
 > Functions, yes, functions. **Because yes**.
