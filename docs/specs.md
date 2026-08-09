@@ -98,13 +98,13 @@ CustomGLCD Driver
 
 ## Software Components
 
-| Component     | Description                       |
-| ------------- | --------------------------------- |
-| GPU12864.h    | CPU-side GPU driver and API       |
-| ScreenI2C.ino | GPU firmware                      |
-| CustomGLCD.h  | Low-level GLCD rendering driver   |
-| glcdimg.py    | Bitmap conversion utility         |
-| ComposeGLCD.h | Additional drier (no need to use) |
+| Component     | Description                                        |
+| ------------- | -------------------------------------------------- |
+| GPU12864.h    | CPU-side GPU driver and API                        |
+| ScreenI2C.ino | GPU firmware                                       |
+| CustomGLCD.h  | Low-level GLCD rendering driver                    |
+| glcdimg.py    | Bitmap conversion utility                          |
+| ComposeGLCD.h | Additional drier (Optional additional GLCD driver) |
 
 
 ## Important Informations
