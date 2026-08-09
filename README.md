@@ -77,6 +77,12 @@ void loop()
 
 ## Available Commands
 
+The API is function-based rather than object-oriented.
+
+> Functions, yes, functions. **Because yes**.
+>
+> It was simpler to implement this way. :P
+
 | Command                                                                                     | Function                                                     |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | `gpuBegin()`                                                                                | Begins communication between CPU and GPU (takes about 1.2 s) |
@@ -93,12 +99,6 @@ void loop()
 
 > [!TIP]
 > You can use `gpuFillRect()` instead of `gpuClear()` when you want to clear only part of the screen to avoid screen flashing on refresh.
-
-The API is function-based rather than object-oriented.
-
-> Functions, yes, functions. **Because yes**.
->
-> It was simpler to implement this way. :P
 
 ## Demos
 
