@@ -6,11 +6,11 @@ The CPU communicates with the GPU using the I2C interface.
 
 # Default Configuration
 
-| Parameter | Value |
-|---|---|
-| Interface | I2C |
-| Device Address | `0x08` |
-| Bus Speed | 400 kHz |
+| Parameter               | Value     |
+| ----------------------- | --------- |
+| Interface               | I&sup2;C  |
+| Device Address          | `0x08`    |
+| Bus Speed               | 400 kHz   |
 | Communication Direction | CPU → GPU |
 
 # Packet Format
@@ -250,7 +250,7 @@ The RT-X12864 uses a GPU-style rendering architecture:
 ```
 CPU
  |
- | I2C Commands
+ | I²C Commands
  v
 RT-X12864 GPU
  |
