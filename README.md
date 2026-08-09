@@ -44,7 +44,7 @@ The CPU only sends high-level commands such as drawing pixels, lines, text, and 
 | Display           | AG12864AHF / KS0108-compatible 128x64 GLCD                 |
 | Interface         | I2C (400 kHz)                                              |
 | VRAM              | 1 KB framebuffer                                           |
-| Power Consumption | Approximately 255 mA during active rendering               |
+| Power Consumption | Approximately 255 mA including the display (idle)          |
 
 ## Installation
 
@@ -95,7 +95,7 @@ The API is function-based rather than object-oriented.
 | `gpuDrawCircle(uint8_t x, uint8_t y, uint8_t r, bool color = true)`                         | Draw a circle                                                |
 | `gpuFillCircle(uint8_t x, uint8_t y, uint8_t r, bool color = true)`                         | Draw a filled circle                                         |
 | `gpuDrawText(uint8_t x, uint8_t y, const char* text, uint8_t fontId, bool color = true)`    | Render text                                                  |
-| `gpuDrawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t width, uint8_t height)` | Render a bitmap                                              |
+| `gpuDrawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint8_t width, uint8_t height)` | Render a bitmap stored in `PROGMEM`                          |
 
 > [!TIP]
 > You can use `gpuFillRect()` instead of `gpuClear()` when you want to clear only part of the screen to avoid screen flashing on refresh.
