@@ -2,9 +2,8 @@
 
 This document explains how to use `glcdimg.py` to convert BMP images into a format compatible with the VidiaG Force RT-X12864 GPU.
 
-## Requirements
-
-The bitmap converter requires Python and the Pillow library. It is recommended to use a virtual environment.
+> [!IMPORTANT]
+> The bitmap converter requires Python and the Pillow library. It is recommended to use a virtual environment.
 
 ## Setup
 
