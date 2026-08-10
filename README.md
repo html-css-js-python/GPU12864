@@ -142,6 +142,11 @@ The repository includes the complete KiCad project and manufacturing files for t
 * [Additional Drivers](docs/additional_drivers.md)
 * [Fun Specifications (Easter Egg)](/fun_specs.md)
 
+## Hardware Files
+* [Project Files](/hardware/GPU12864)
+* [Gerber Files](/hardware/GPU12864/gerber)
+* [Gerber Package](/hardware/GPU12864/gerber.zip)
+
 > [!NOTE]
 > This is not an RTX graphics card. It is a custom, microcontroller-based 2D GPU for GLCD displays.
 
