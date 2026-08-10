@@ -1,11 +1,12 @@
 # VidiaG Force RT-X12864
 
-![C++](https://img.shields.io/badge/C%2B%2B-00599C?logo=cplusplus&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![License](https://img.shields.io/github/license/html-css-js-python/gpu12864?label=License)
-![Issues](https://img.shields.io/github/issues/html-css-js-python/gpu12864?label=Issues)
-![Stars](https://img.shields.io/github/stars/html-css-js-python/gpu12864)
-
+<p align="center">
+    <img src="https://img.shields.io/badge/Arduino-00979D?logo=arduino&logoColor=white" alt="Arduino">
+    <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python">
+    <a href="/LICENSE"><img src="https://img.shields.io/github/license/html-css-js-python/gpu12864?label=License" alt="License"></a>
+    <img src="https://img.shields.io/github/issues/html-css-js-python/gpu12864?label=Issues" alt="Issues">
+    <img src="https://img.shields.io/github/stars/html-css-js-python/gpu12864" alt="Stars">
+</p>
 
 VidiaG Force RT-X12864 is an open-source microcontroller-based GPU designed for 128x64 GLCD displays. It acts as a dedicated graphics processing unit, handling framebuffer management, rendering, and communication with the display independently from the main CPU.
 
