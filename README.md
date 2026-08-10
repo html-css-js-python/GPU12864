@@ -50,7 +50,7 @@ The CPU only sends high-level commands such as drawing pixels, lines, text, and 
 
 1. Upload `gpu_soft/ScreenI2C/ScreenI2C.ino` to the Arduino Uno R4 WiFi.
 2. Connect the GLCD display to the GPU according to the schematic.
-3. Connect the CPU board to the GPU via I2C using `GND`, `VCC`, `SCL`, and `SDA`.
+3. Connect the CPU board to the GPU via I&sup2;C using `GND`, `VCC`, `SCL`, and `SDA`.
 4. Include `GPU12864.h` in your CPU project.
 5. Call `gpuBegin()` before using any GPU functions.
 
