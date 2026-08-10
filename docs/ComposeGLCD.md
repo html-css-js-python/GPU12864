@@ -1,5 +1,7 @@
 # ComposeGLCD
 
+![Driver Version: V1.0](https://img.shields.io/badge/Driver_Version-V1.0-orange)
+
 ComposeGLCD is an additional GUI driver for the CPU software, built on top of the `GPU12864` graphics driver. It provides a simple and lightweight API for creating user interfaces on a 128×64 monochrome graphics display.
 
 ## Features
