@@ -41,7 +41,8 @@ CustomGLCD Driver
 128x64 GLCD Display
 ```
 
-The CPU only sends high-level commands such as drawing pixels, lines, text, and bitmaps. The GPU handles all low-level rendering and display communication.
+> [!IMPORTANT]
+> The CPU only sends high-level commands such as drawing pixels, lines, text, and bitmaps. The GPU handles all low-level rendering and display communication.
 
 ## Hardware
 
