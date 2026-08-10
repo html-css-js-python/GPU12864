@@ -1,5 +1,7 @@
 # RT-X12864 I2C Communication Protocol
 
+![Build](https://img.shields.io/badge/Protocol_Version-V1.0-brightgreen)
+
 This document describes the communication protocol between the CPU and the VidiaG Force RT-X12864 graphics processor.
 
 The CPU communicates with the GPU using the I&sup2;C interface.
@@ -316,10 +318,4 @@ Example:
 
 ```
 CMD_CUSTOM = 0x20
-```
-
-# Protocol Version
-
-```
-v1.0
 ```
