@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/github/stars/html-css-js-python/gpu12864" alt="Stars">
 </p>
 
-VidiaG Force RT-X12864 is an open-source microcontroller-based GPU designed for 128x64 GLCD displays. It acts as a dedicated graphics processing unit, handling framebuffer management, rendering, and communication with the display independently from the main CPU.
+VidiaG Force RT-X12864 is an open-source, microcontroller-based GPU designed for 128x64 GLCD displays. It acts as a dedicated graphics processing unit, handling framebuffer management, rendering, and communication with the display independently from the main CPU.
 
 Unlike a typical GLCD library, the CPU does not directly control the display. Instead, it sends high-level drawing commands to the RT-X12864 GPU, which performs all rendering operations and updates the GLCD using its own framebuffer.
 
