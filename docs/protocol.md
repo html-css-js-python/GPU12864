@@ -2,7 +2,7 @@
 
 This document describes the communication protocol between the CPU and the VidiaG Force RT-X12864 graphics processor.
 
-The CPU communicates with the GPU using the I2C interface.
+The CPU communicates with the GPU using the I&sup2;C interface.
 
 # Default Configuration
 
