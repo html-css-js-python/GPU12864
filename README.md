@@ -42,7 +42,7 @@ The CPU only sends high-level commands such as drawing pixels, lines, text, and 
 | GPU               | Arduino Uno R4 WiFi                                        |
 | CPU               | Any compatible I2C master (tested with Arduino Nano Every) |
 | Display           | AG12864AHF / KS0108-compatible 128x64 GLCD                 |
-| Interface         | I2C (400 kHz)                                              |
+| Interface         | I&sup2;C Fast-Mode (400 kHz)                               |
 | VRAM              | 1 KB framebuffer                                           |
 | Power Consumption | Approximately 255 mA including the display (idle)          |
 
@@ -129,7 +129,7 @@ The repository includes the complete KiCad project and manufacturing files for t
 
 * [Technical Specification](docs/specs.md)
 * [Bitmap Conversion and Rendering](docs/bitmap.md)
-* [I2C Communication Protocol](docs/protocol.md)
+* [I&sup2;C Communication Protocol](docs/protocol.md)
 * [Additional Drivers](docs/additional_drivers.md)
 * [Fun Specifications (Easter Egg)](/fun_specs.md)
 
