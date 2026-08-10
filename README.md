@@ -1,6 +1,7 @@
 # VidiaG Force RT-X12864
 
 <p align="center">
+    <img src="https://img.shields.io/badge/Windows-0078D4?logo=windows&logoColor=white" alt="Windows">
     <img src="https://img.shields.io/badge/Arduino-00979D?logo=arduino&logoColor=white" alt="Arduino">
     <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python">
     <a href="/LICENSE"><img src="https://img.shields.io/github/license/html-css-js-python/gpu12864?label=License" alt="License"></a>
