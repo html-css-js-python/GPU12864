@@ -14,11 +14,11 @@ This document contains the official technical specifications of the VidiaG Force
 
 ## Compatibility
 
-| Model                       | Tested | Datasheet link                                                                             | Link to purchase                             |
-| --------------------------- | ------ | ------------------------------------------------------------------------------------------ | -------------------------------------------- |
-| Ampire AG12864AHF           | Yes    | Unavailable                                                                                | https://aliexpress.com/item/32656645397.html |
-| Crystalfontz CFAG12864A-YYH | No     | https://www.alldatasheet.com/datasheet-pdf/pdf/1162323/CRYSTAIFONTZ/CFAG12864A-YYH-VN.html | Unavailable                                  |
-| Crystalfontz CFAG12864A-TMI | No     | https://www.alldatasheet.com/datasheet-pdf/pdf/1162322/CRYSTAIFONTZ/CFAG12864A-TMI-VN.html | Unavailable                                  |
+| Model                       | Tested                                               | Datasheet link                                                                             | Link to purchase                             |
+| --------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------- |
+| Ampire AG12864AHF           | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | Unavailable                                                                                | https://aliexpress.com/item/32656645397.html |
+| Crystalfontz CFAG12864A-YYH | ![No](https://img.shields.io/badge/No-red)           | https://www.alldatasheet.com/datasheet-pdf/pdf/1162323/CRYSTAIFONTZ/CFAG12864A-YYH-VN.html | Unavailable                                  |
+| Crystalfontz CFAG12864A-TMI | ![No](https://img.shields.io/badge/No-red)           | https://www.alldatasheet.com/datasheet-pdf/pdf/1162322/CRYSTAIFONTZ/CFAG12864A-TMI-VN.html | Unavailable                                  |
 
 > [!NOTE]
 > Displays marked as untested will most likely work with this GPU, but compatibility has not been verified.
